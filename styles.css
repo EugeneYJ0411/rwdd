@@ -1,0 +1,212 @@
+/* styles.css */
+
+/* ------------------------------------- */
+/* 1. Global & Reset Styles              */
+/* ------------------------------------- */
+
+/* Box‐sizing reset so padding/border included in width calculation */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base html & body settings */
+html {
+  font-size: 100%; /* 16px by default */
+}
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  color: #333333;
+  background-color: #f9f9f9;
+}
+
+/* Utility container class */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0;
+}
+
+/* Link styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #006400; /* darker green hover */
+}
+
+/* Button base */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-colour: #2e8b57; /* sea green */
+  color: #333333;
+}
+.btn:hover {
+  background-colour: #276f45;
+}
+
+/* ------------------------------------- */
+/* 2. Structural Styles                   */
+/* ------------------------------------- */
+
+/* Site Header */
+.site-header {
+  background-colour: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 0;
+}
+.site-header .logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  colour: #2e8b57;
+}
+.site-header .site-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.site-header .site-nav a {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  background-colour: #e8f5e9;
+}
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+.hero .btn-primary {
+  background-colour: #2e8b57;
+}
+.hero .btn-primary:hover {
+  background-colour: #276f45;
+}
+
+/* Feature Sections (e.g., Recycling, Energy, Gardening, Swap) */
+.feature-section {
+  padding: 2rem 0;
+}
+.feature-section h3 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  colour: #2e8b57;
+}
+.feature-section p {
+  margin-bottom: 1.5rem;
+  colour: #555;
+}
+.cards {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+.card {
+  background-colour: #fff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.card h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  colour: #2e8b57;
+}
+.card p {
+  font-size: 1rem;
+  colour: #666;
+}
+
+/* About Section */
+.about-section {
+  padding: 2rem 0;
+}
+.about-section h3 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+.about-section p {
+  margin-bottom: 0.75rem;
+  colour: #555;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 2rem 0;
+  background-colour: #fff;
+  border-top: 1px solid #e0e0e0;
+}
+.site-footer p {
+  font-size: 0.875rem;
+  colour: #777;
+}
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.footer-nav a {
+  font-size: 0.875rem;
+  colour: #2e8b57;
+}
+.footer-nav a:hover {
+  colour: #1b4d3c;
+}
+
+/* ------------------------------------- */
+/* 3. Responsive Breakpoints              */
+/* Using mobile-first: define styles for mobile, then add for larger screens */
+/* ------------------------------------- */
+
+/* Tablet and up (min-width: 768px) */
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.25rem;
+  }
+}
+
+/* Desktop and up (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .site-header .site-nav ul {
+    gap: 2rem;
+  }
+  .hero {
+    padding: 6rem 0 3rem;
+  }
+  .hero h2 {
+    font-size: 3rem;
+  }
+}
