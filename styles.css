@@ -82,6 +82,19 @@ a:hover {
   font-size: 1rem;
   padding: 0.25rem 0.5rem;
 }
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Navigation list remains flex as earlier */
+.site-header .site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0; /* ensure no default margin */
+}
 
 /* Hero Section */
 .hero {

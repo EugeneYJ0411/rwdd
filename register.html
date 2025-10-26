@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoGlob – Register</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-flex">
+      <h1 class="logo"><a href="EcoGlob.html">EcoGlob</a></h1>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="EcoGlob.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="register-page">
+    <div class="container register-container">
+      <h2>Create Your EcoGlob Account</h2>
+      <form action="process_register.php" method="post" class="register-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter a password" required autocomplete="new-password">
+        </div>
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input type="password" id="password2" name="password2" placeholder="Re-enter your password" required autocomplete="new-password">
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="terms" value="1" required>
+            I agree to the <a href="terms.html">Terms & Conditions</a>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+      <p class="login-prompt">
+        Already have an account? <a href="login.html">Login here</a>.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 EcoGlob. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
