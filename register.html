@@ -7,14 +7,103 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<style>
+    /* Header / branding styles for EcoGlob (inline here to avoid external edits) */
+    .site-header{
+      background: #f5fff5;
+      border: 1px solid #d7efd7;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 12px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .header-flex{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:#0b6623; font-weight:700; font-size:1.25rem; }
+   .brand img{ width:48px; height:48px; object-fit:contain; border-radius:6px; display:block; background:transparent; border:0; }
+   /* If the PNG has a white/solid background you want removed, the only reliable way
+     is to export a transparent PNG (remove background in an editor). CSS can't
+     make a white background truly transparent in all cases. Below are helpful
+     small hacks you can try, but they may not fully remove white pixels: */
+   /* Try blend mode (may look different depending on header background): */
+   .brand img.remove-white { mix-blend-mode: multiply; }
+   /* Or try forcing semi-transparency (not recommended if logo must stay crisp): */
+   .brand img.reduce-white { background:transparent; opacity:0.98; }
+    /* Larger, more spaced nav labels */
+    .site-nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:28px; align-items:center; }
+    .site-nav a{ text-decoration:none; color:#0b6623; padding:8px 10px; border-radius:6px; transition:background .15s, color .15s; font-size:1.05rem; letter-spacing:0.6px; font-weight:600; }
+    .site-nav a:hover{ background:#e6f7e6; color:#044d16; }
+    @media (max-width:940px){
+      /* slightly smaller on medium screens */
+      .site-nav a{ font-size:1rem; }
+    }
+    @media (max-width:640px){
+      .header-flex{ flex-direction:column; align-items:flex-start; }
+      .site-nav ul{ flex-wrap:wrap; gap:12px; }
+      .site-nav a{ font-size:0.98rem; padding:6px 8px; }
+    }
+
+    /* Centered login box styles */
+    .register-page{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 200px); /* leave space for header/footer; adjust if needed */
+      padding: 24px;
+      box-sizing: border-box;
+      background: transparent;
+    }
+
+    .register-container{
+      width: 100%;
+      max-width: 460px; /* card width */
+      background: #ffffff;
+      border: 1px solid #e6efe6;
+      border-radius: 10px;
+      padding: 28px 26px;
+      box-shadow: 0 6px 18px rgba(6, 60, 20, 0.06);
+    }
+
+    .register-container h2{ margin-top:0; margin-bottom:14px; color:#0b6623; font-size:1.2rem; }
+
+    .register-form .form-group{ margin-bottom:14px; display:flex; flex-direction:column; gap:6px; }
+    .register-form label{ font-size:0.95rem; color:#234923; }
+    .register-form input[type="email"], .register--form input[type="password"]{
+      padding:10px 12px; border:1px solid #cfe9cf; border-radius:6px; font-size:1rem; outline:none; width:100%; box-sizing:border-box;
+    }
+    .register-form input[type="email"]:focus, .register--form input[type="password"]:focus{ border-color:#9fd29f; box-shadow:0 0 0 3px rgba(159,210,159,0.12); }
+
+    /* Align checkbox with inputs (left) and keep forgot link nearby */
+    .form-options{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+    .form-options label{ display:flex; align-items:center; gap:8px; margin:0; }
+    .form-options .forgot-link{ font-size:0.92rem; color:#0b6623; text-decoration:underline; cursor:pointer; }
+
+    /* Larger, full-width centered primary button */
+    .btn-primary{ display:block; width:100%; max-width:360px; margin:10px auto 0; background:#0b6623; color:white; border:none; padding:12px 16px; border-radius:8px; cursor:pointer; font-weight:700; font-size:1.06rem; }
+    .btn-primary:hover{ background:#095118; }
+
+    @media (max-width:480px){
+      .register--container{ padding:18px; }
+      .site-nav ul{ gap:10px; }
+    }
+  </style>
   <header class="site-header">
     <div class="container header-flex">
-      <h1 class="logo"><a href="EcoGlob.html">EcoGlob</a></h1>
-      <nav class="site-nav">
+      <!-- Brand: image + site title -->
+      <h1 class="logo"><a href="#"><img src="Eco Glob.png"
+      alt="High Resolution Example"
+      width="75" height="50"
+      class="responsive-image"></a></h1>
+        <!-- Only show the logo image (no site text). If the PNG has a white background and you want it gone,
+             see notes after the patch — best is to replace the PNG with a transparent one. -->
+      </a>
+
+      <!-- Main navigation -->
+      <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="EcoGlob.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="gardening.html">Gardening</a></li>
+          <li><a href="ecoswap.html">Eco-Swap</a></li>
+          <li><a href="../Lecture/aboutus.php">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
       </nav>
     </div>
@@ -48,7 +137,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
       </form>
-      <p class="login-prompt">
+      <p class="register-prompt">
         Already have an account? <a href="login.html">Login here</a>.
       </p>
     </div>
