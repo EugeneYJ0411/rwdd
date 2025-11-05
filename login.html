@@ -119,6 +119,20 @@
   <main class="login-page">
     <div class="container login-container">
       <h2>Login to EcoGlob</h2>
+
+      <!-- Display session error if set -->
+      <?php
+      session_start();
+      if (isset($_SESSION['error'])) {
+          echo '<p class="error-msg">' . htmlspecialchars($_SESSION['error']) . '</p>';
+          unset($_SESSION['error']);
+      }
+      if (isset($_SESSION['success'])) {
+          echo '<p class="success-msg">' . htmlspecialchars($_SESSION['success']) . '</p>';
+          unset($_SESSION['success']);
+      }
+      ?>
+
       <form action="process_login.php" method="post" class="login-form">
         <div class="form-group">
           <label for="email">Email address</label>
