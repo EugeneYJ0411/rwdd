@@ -112,7 +112,7 @@
   <main class="register-page">
     <div class="container register-container">
       <h2>Create Your EcoGlob Account</h2>
-      <form action="process_register.php" method="post" class="register-form">
+      <form action="process_register_debug.php" method="post" class="register-form">
         <div class="form-group">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
@@ -123,7 +123,7 @@
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter a password" required autocomplete="new-password">
+          <input type="password" id="password" name="password_hash" placeholder="Enter a password" required autocomplete="new-password">
         </div>
         <div class="form-group">
           <label for="password2">Confirm Password</label>
@@ -135,7 +135,7 @@
             I agree to the <a href="terms.html">Terms & Conditions</a>
           </label>
         </div>
-        <button type="submit" onclick="" class="btn btn-primary">Register</button>
+        <button type="submit" value="Register" name="btnRegister" class="btn btn-primary">Register</button>
       </form>
       <p class="register-prompt">
         Already have an account? <a href="login.html">Login here</a>.
