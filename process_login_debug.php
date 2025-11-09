@@ -46,7 +46,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Prepare SELECT
-$sql = "SELECT user_id, name, email, password_hash FROM users WHERE email = ?";
+$sql = "SELECT * FROM users 
+WHERE email = '$email' AND password_hash = '$password'";
 if ($stmt = $conn->prepare($sql)) {
     $stmt->bind_param("s", $email);
     if (!$stmt->execute()) {
@@ -61,7 +62,7 @@ if ($stmt = $conn->prepare($sql)) {
     echo "<!-- Debug: SELECT result rows = " . $stmt->num_rows . " -->\n";
 
     if ($stmt->num_rows == 1) {
-        $stmt->bind_result($user_id, $name, $db_email, $db_password_hash);
+        $stmt->bind_result($user_id, $name, $db_email, $password);
         $stmt->fetch();
 
         echo "<!-- Debug: Fetched user_id={$user_id}, name='{$name}', db_email='{$db_email}', db_password_hash='" . substr($db_password_hash,0,20) . "...' -->\n";
